@@ -1,0 +1,22 @@
+/* #region width */
+.row10 {
+  width: 10%;
+}
+.row15 {
+  width: 15%;
+}
+.row25 {
+  width: 25%;
+}
+.row33 {
+  width: 33.3%;
+}
+.row50 {
+  width: 50%;
+}
+.row75 {
+  width: 75%;
+}
+.row100 {
+  width: 100%;
+}
