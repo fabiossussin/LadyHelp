@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApp1.Data
+namespace LadyHelp.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

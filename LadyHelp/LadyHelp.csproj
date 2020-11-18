@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controller\**" />
     <Compile Remove="Identity\**" />
+    <Content Remove="Controller\**" />
     <Content Remove="Identity\**" />
+    <EmbeddedResource Remove="Controller\**" />
     <EmbeddedResource Remove="Identity\**" />
+    <None Remove="Controller\**" />
     <None Remove="Identity\**" />
   </ItemGroup>
 
@@ -21,8 +25,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controller\" />
+    <Folder Include="Areas\Identity\Services\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Identity\Pages\Account\Layout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Identity\Pages\Account\Login.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
