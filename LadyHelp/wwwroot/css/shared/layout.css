@@ -25,54 +25,6 @@
   max-width: var(--main-page-width);
   margin: auto;
 }
-* {
-  color: var(--theme-main-font-color);
-  text-decoration: none;
-  font-family: var(--theme-main-font-family);
-  border: none;
-  outline: none;
-}
-a {
-  cursor: pointer;
-  color: var(--theme-main-font-color);
-  text-decoration: none;
-}
-button {
-  background: var(--theme-main-contrast-font-color);
-}
-a,
-i,
-button,
-button i {
-  color: var(--theme-main-font-color);
-}
-input {
-  height: 35px;
-  padding: 5px 15px;
-  border-radius: 20px;
-  color: var(--theme-main-contrast-font-color);
-}
-.info-text {
-  width: 100%;
-  margin-bottom: 10px;
-  font-size: 12px;
-}
-.title {
-  font-weight: bold;
-  font-size: 15px;
-  width: 100%;
-}
-i:hover,
-button:hover i,
-a:hover {
-  color: var(--theme-main-contrast-font-color);
-  text-decoration: none;
-}
-button:hover {
-  background: var(--theme-main-font-color);
-  border: 2px solid var(--theme-main-contrast-font-color);
-  color: var(--theme-main-contrast-font-color);
-}
 /* #region Header  */
 .body-container .header {
   background: var(--theme-main-color);
@@ -112,6 +64,10 @@ button:hover {
 /* #end-region */
 
 /* #region Footer */
+.body-container footer {
+  background: var(--theme-main-color-brighter2);
+  color: var(--theme-main-font-color);
+}
 .body-container footer .newsletter {
   width: var(--main-footer-width);
   display: flex;
@@ -120,9 +76,6 @@ button:hover {
   justify-content: center;
   padding-bottom: 20px;
   align-items: flex-end;
-}
-.body-container footer {
-  background: var(--theme-main-color-brighter2);
 }
 .body-container footer .newsletter span .mail-icon {
   border: 2px solid var(--theme-main-font-color);

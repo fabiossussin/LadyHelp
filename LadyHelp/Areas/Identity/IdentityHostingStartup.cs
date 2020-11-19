@@ -12,13 +12,15 @@ namespace LadyHelp.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
+            builder.ConfigureServices((context, services) =>
+            {
                 services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("LadyHelpContextConnection")));
 
                 services.AddDefaultIdentity<IdentityUser>()
-                    .AddEntityFrameworkStores<ApplicationDbContext>();
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddErrorDescriber<CustomIdentityErrorDescriber>();
 
                 services.Configure<IdentityOptions>(options =>
                 {

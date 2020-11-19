@@ -41,10 +41,10 @@ namespace LadyHelp.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-            [DataType(DataType.Password)]
+            [DataType(DataType.Password), Display(Name = "Senha")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Lembrar de mim?")]
             public bool RememberMe { get; set; }
         }
 

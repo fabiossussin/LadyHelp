@@ -6,7 +6,7 @@
     <title>LadyHelp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/shared/variables.css" />
-    <link rel="stylesheet" href="~/css/shared/utils.css" />
+    <link rel="stylesheet" href="~/css/shared/lady-help.css" />
     <link rel="stylesheet" href="~/css/shared/layout.css" />
     <script type="text/javascript" src="https://kit.fontawesome.com/02d70372b7.js" crossorigin="anonymous"></script>
     <link rel="icon" href="~/assets/images/png/logo.jpeg">
@@ -16,6 +16,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <div class="body-container">
@@ -30,7 +31,7 @@
                 </a>
                 <a class="row15">Sobre Nós</a>
                 <form class="row50">
-                    <input class="row100" placeholder="Pesquisar por Categoria ou Profissional" />
+                    <input class="input-default row100" placeholder="Pesquisar por Categoria ou Profissional" />
                     <button type="button">
                         <i class="fas fa-search"></i>
                     </button>
@@ -54,8 +55,8 @@
                     <br />
                     Receba nossas novidades e promoções no seu e-mail
                 </span>
-                <input class="name-input" placeholder="Nome" />
-                <input class="mail-input" placeholder="E-Mail" />
+                <input class="input-default name-input" placeholder="Nome" />
+                <input class="input-default mail-input" placeholder="E-Mail" />
                 <button>
                     Cadastrar
                 </button>
