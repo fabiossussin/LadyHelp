@@ -36,12 +36,10 @@ namespace LadyHelp.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "O campo Email deve ser informado"), EmailAddress]
             public string Email { get; set; }
 
-            [Required]
-            [DataType(DataType.Password), Display(Name = "Senha")]
+            [Required(ErrorMessage = "O campo Senha deve ser informado"), DataType(DataType.Password), Display(Name = "Senha")]
             public string Password { get; set; }
 
             [Display(Name = "Lembrar de mim?")]

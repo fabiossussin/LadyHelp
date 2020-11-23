@@ -1,5 +1,8 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Models.User;
 
 namespace LadyHelp.Controllers
 {
@@ -27,6 +30,12 @@ namespace LadyHelp.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [HttpPost, Route("CadastrarEmailNotificacao")]
+        public async Task<IActionResult> SaveMail([FromForm] ApplicationUser data)
+        {
+            return Redirect($"#title={Uri.EscapeDataString("Falha ao Salvar")}&message={Uri.EscapeDataString("teste")}&type=warning");
         }
     }
 }

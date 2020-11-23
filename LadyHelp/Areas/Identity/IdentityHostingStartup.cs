@@ -22,16 +22,6 @@ namespace LadyHelp.Areas.Identity
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddErrorDescriber<CustomIdentityErrorDescriber>();
 
-                services.Configure<IdentityOptions>(options =>
-                {
-                    options.Password.RequireDigit = false;
-                    options.Password.RequiredLength = 8;
-                    options.Password.RequireLowercase = false;
-                    options.Password.RequireNonAlphanumeric = false;
-                    options.Password.RequireUppercase = false;
-                    options.Password.RequiredUniqueChars = 0;
-                });
-
             });
         }
     }

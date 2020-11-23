@@ -25,3 +25,6 @@
 .bg-login .login-content label a > i {
   margin-right: 5px;
 }
+.bg-login .login-content .form-group label {
+  color: var(--theme-main-contrast-font-color);
+}

@@ -4,7 +4,6 @@
     ViewData["Title"] = "Login";
 }
 @section Styles {
-    <link type="text/css; charset=utf-8" rel="stylesheet" href="~/css/account/account.css" />
     <link type="text/css; charset=utf-8" rel="stylesheet" href="~/css/account/manage/login.css" />
 }
 <div class="bg-login">
@@ -14,7 +13,6 @@
             <i class="fas fa-user-lock cfc icon-top"></i>
             <h4 class="cfc text-center">Entre com o seu usuário e senha:</h4>
             <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Input.Email" class="cfc"></label>
                 <input asp-for="Input.Email" class="input-default row100" placeholder="Digite o seu Email" />
