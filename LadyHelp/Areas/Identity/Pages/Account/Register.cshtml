@@ -1,0 +1,28 @@
+﻿@page
+@section Styles {
+    <link type="text/css; charset=utf-8" rel="stylesheet" href="~/css/account/manage/register.css" />
+}
+<div class="register">
+    <div class="bg-content">
+        <a class="content" asp-page="./RegisterCommomUser">
+            <span>Usuário Comum</span>
+            <div class="message">
+                <span>
+                    Indicado para você, que tem como prioridade a sua segurança na hora de escolher um prestador de serviços.
+                </span>
+            </div>
+        </a>
+        <a class="content" asp-page="./RegisterHardworkingUser">
+            <span>Usuário Trabalhador</span>
+            <div class="message">
+                <span>
+                    Indicado para você trabalhadora que perdeu seu emprego nessa pandemia e quer ganhar uma renda extra.
+                </span>
+            </div>
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

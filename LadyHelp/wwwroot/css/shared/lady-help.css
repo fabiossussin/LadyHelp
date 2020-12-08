@@ -1,0 +1,127 @@
+/* #region width */
+.row10 {
+  width: calc(10% - 10px);
+}
+.row15 {
+  width: calc(15% - 10px);
+}
+.row25 {
+  width: calc(25% - 10px);
+}
+.row33 {
+  width: calc(33.3% - 10px);
+}
+.row50 {
+  width: calc(50% - 10px);
+}
+.row75 {
+  width: calc(75% - 10px);
+}
+.row100 {
+  width: 100%;
+}
+/* #end-region */
+
+/* #region Tratativa de elementos */
+* {
+  text-decoration: none;
+  font-family: var(--theme-main-font-family);
+  border: none;
+  outline: none;
+  margin: 0;
+}
+a {
+  cursor: pointer;
+  color: var(--theme-main-font-color);
+  text-decoration: none;
+}
+button {
+  background: var(--theme-main-contrast-font-color);
+}
+a,
+i,
+label,
+button,
+button i {
+  color: var(--theme-main-font-color);
+}
+.contrast-button:hover i,
+label:hover,
+i:hover,
+a:hover {
+  color: var(--theme-main-font-color-hover);
+  text-decoration: none;
+}
+button:hover i {
+  color: var(--theme-main-contrast-font-color);
+}
+button:hover {
+  background: var(--theme-main-font-color);
+  border: 2px solid var(--theme-main-contrast-font-color);
+  color: var(--theme-main-contrast-font-color);
+}
+.contrast-button {
+  background: var(--theme-main-font-color);
+  color: var(--theme-main-contrast-font-color);
+  border: 2px solid var(--theme-main-contrast-font-color);
+}
+.contrast-button:hover {
+  background: var(--theme-main-contrast-font-color);
+  color: var(--theme-main-font-color);
+  border: 2px solid var(--theme-main-font-color);
+}
+.text-danger,
+.danger {
+  color: var(--danger);
+}
+.contrast-button,
+.default-button {
+  height: 30px;
+  border-radius: 30px;
+  width: 110px;
+}
+.mfc {
+  color: var(--theme-main-font-color);
+}
+.cfc {
+  color: var(--theme-main-contrast-font-color);
+}
+.bold {
+  font-weight: bold;
+}
+.input-default {
+  height: 35px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: var(--theme-main-contrast-font-color);
+  border: 1px solid var(--theme-main-contrast-font-color);
+}
+.info-text {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.title {
+  font-weight: bold;
+  font-size: 15px;
+  width: 100%;
+}
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.justify-content-space-between{
+  justify-content: space-between !important;
+}
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.form-group label {
+  width: 100%;
+  color: var(--theme-main-font-color);
+}
+/* #end-region*/

@@ -1,0 +1,14 @@
+:root {
+  --main-page-width: 1280px;
+  --main-footer-width: 1050px;
+  --danger: red;
+  --theme-main-color: #313438;
+  --theme-main-color-brighter: #1b1e21;
+  --theme-main-color-brighter2: #181a1d;
+  --theme-main-font-color: #fff;
+  --theme-main-contrast-font-color: #000;
+  --theme-main-font-color-hover: #a7a7a7;
+  --theme-main-contrast-font-color-hover: #777777;
+  --theme-main-font-family: "Poppinns", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}

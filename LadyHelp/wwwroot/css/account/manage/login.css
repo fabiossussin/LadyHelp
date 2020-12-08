@@ -1,0 +1,30 @@
+﻿.body-container {
+  background: #000;
+}
+.page-container {
+  margin-bottom: -20px;
+}
+.bg-login img {
+  height: 100%;
+}
+.bg-login .login-content {
+  position: absolute;
+  top: 150px;
+  right: 150px;
+  background: #fff;
+  padding: 5px 15px;
+  border-radius: 35px;
+  width: 400px;
+}
+.bg-login .login-content .icon-top {
+  width: 100%;
+  font-size: 40px;
+  margin-top: 10px;
+  text-align: center;
+}
+.bg-login .login-content label a > i {
+  margin-right: 5px;
+}
+.bg-login .login-content .form-group label {
+  color: var(--theme-main-contrast-font-color);
+}

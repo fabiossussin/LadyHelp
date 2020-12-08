@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Poppinns";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../assets/fonts/poppins/Poppins-Light.woff2);
+}
+@font-face {
+  font-family: "Poppinns";
+  font-style: normal;
+  font-weight: 600;
+  src: url(../../assets/fonts/poppins/Poppins-Medium.woff2);
+}
+@font-face {
+  font-family: "Poppinns";
+  font-style: normal;
+  font-weight: 800;
+  src: url(../../assets/fonts/poppins/Poppins-Bold.woff2);
+}
+.body-container {
+  width: 100%;
+  height: 100%;
+  background: var(--theme-main-color-brighter);
+}
+.page-container {
+  width: var(--main-page-width);
+  margin: auto;
+  max-width: 100%;
+}
+/* #region Header  */
+.body-container .header {
+  background: var(--theme-main-color);
+}
+.body-container .header .header-content {
+  display: flex;
+  height: 60px;
+  width: var(--main-page-width);
+  max-width: 100%;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+}
+.body-container .header .header-content .logo {
+  height: 80%;
+}
+.body-container .header .header-content .logo img {
+  height: 100%;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.body-container .header .header-content form {
+  display: flex;
+  color: var(--theme-main-contrast-font-color);
+}
+.body-container .header .header-content form button {
+  width: 60px;
+  position: relative;
+  right: 55px;
+  border-radius: 0 30px 30px 0;
+}
+.body-container .header .header-content .user {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* #end-region */
+
+/* #region Footer */
+.body-container footer {
+  background: var(--theme-main-color-brighter2);
+  color: var(--theme-main-font-color);
+  max-width: 100%;
+}
+.body-container footer .newsletter {
+  width: var(--main-footer-width);
+  display: flex;
+  margin: auto;
+  height: 80px;
+  justify-content: center;
+  padding-bottom: 20px;
+  align-items: flex-end;
+  max-width: 100%;
+}
+.body-container footer .newsletter span .mail-icon {
+  border: 2px solid var(--theme-main-font-color);
+}
+.body-container footer .newsletter input {
+  width: 250px;
+}
+.body-container footer .newsletter .name-input {
+  margin: 0 20px;
+}
+.body-container footer .newsletter button {
+  height: 35px;
+  margin-left: 20px;
+  border-radius: 30px;
+  width: 110px;
+}
+.body-container footer .information {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: var(--main-footer-width);
+  max-width: 100%;
+}
+.body-container footer .information * {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+/* #end-region */
+
+@media screen and (max-width: 767px) {
+}

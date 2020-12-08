@@ -1,0 +1,123 @@
+﻿@page
+@model RegisterCommomUserModel
+@section Styles {
+    <link type="text/css; charset=utf-8" rel="stylesheet" href="~/css/account/manage/register.css" />
+}
+<div name="registerUser">
+    <div class="user-image">
+        <div class="image" name="image-profile">
+            <a name="remove-image"><i class="fas fa-times"></i></a>
+        </div>
+        <a name="without-image-profile">
+            <i class="far fa-user"></i>
+            <span>Imagem de Perfil</span>
+        </a>
+        <input name="image-file" type="file" asp-for="Input.ImageProfile" class="type-file" />
+    </div>
+    <hr />
+    <div class="registration-information">
+        <div class="account-data">
+            <span class="form-title" name="personal-data">Dados Pessoais</span>
+            <span class="form-title" name="address">Endereço</span>
+            <span class="form-title" name="account-data">Email/Senha</span>
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="group">
+                <div asp-validation-summary="All" class="text-danger">Nem todos os campos foram informados corretamente</div>
+                <div class="form-content" name="personal-data-info">
+                    <div class="group">
+                        <div class="form-group row100">
+                            <label asp-for="Input.Name" class="cfc bold"></label>
+                            <input asp-for="Input.Name" class="input-default row100" placeholder="Digite o seu Nome" />
+                            <span asp-validation-for="Input.Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.Cpf" class="cfc bold"></label>
+                            <input asp-for="Input.Cpf" class="input-default row100" placeholder="Digite o seu CPF" />
+                            <span asp-validation-for="Input.Cpf" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.Rg" class="cfc bold"></label>
+                            <input asp-for="Input.Rg" class="input-default row100" placeholder="Confirme o seu RG" />
+                            <span asp-validation-for="Input.Rg" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.BirthDay" class="cfc bold"></label>
+                            <input asp-for="Input.BirthDay" class="input-default row100" placeholder="Digite a sua Data de Nascimento" />
+                            <span asp-validation-for="Input.BirthDay" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.Phone" class="cfc bold"></label>
+                            <input asp-for="Input.Phone" class="input-default row100" placeholder="Digite o seu Telefone" />
+                            <span asp-validation-for="Input.Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-content" name="address-info">
+                    <div class="group">
+                        <div class="form-group row50">
+                            <label asp-for="Input.ZipCode" class="cfc bold"></label>
+                            <input asp-for="Input.ZipCode" class="input-default row100" placeholder="Digite o seu CEP" />
+                            <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.Street" class="cfc bold"></label>
+                            <input asp-for="Input.Street" class="input-default row100" placeholder="Digite o seu Logradouro" />
+                            <span asp-validation-for="Input.Street" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.HouseNumber" class="cfc bold"></label>
+                            <input asp-for="Input.HouseNumber" class="input-default row100" placeholder="Digite o seu Número" />
+                            <span asp-validation-for="Input.HouseNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.Complement" class="cfc bold"></label>
+                            <input asp-for="Input.Complement" class="input-default row100" placeholder="Digite o seu Complemento" />
+                            <span asp-validation-for="Input.Complement" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.Neighborhood" class="cfc bold"></label>
+                            <input asp-for="Input.Neighborhood" class="input-default row100" placeholder="Digite o seu Bairo" />
+                            <span asp-validation-for="Input.Neighborhood" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.City" class="cfc bold"></label>
+                            <input asp-for="Input.City" class="input-default row100" placeholder="Digite a sua Cidade" />
+                            <span asp-validation-for="Input.City" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.State" class="cfc bold"></label>
+                            <input asp-for="Input.State" class="input-default row100" placeholder="Confirme o seu Estado" />
+                            <span asp-validation-for="Input.State" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-content" name="account-data-info">
+                    <div class="group">
+                        <div class="form-group row100">
+                            <label asp-for="Input.Email" class="cfc bold"></label>
+                            <input asp-for="Input.Email" class="input-default row100" placeholder="Digite o seu Email" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.Password" class="cfc bold"></label>
+                            <input asp-for="Input.Password" class="input-default row100" placeholder="Digite a sua Senha" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row50">
+                            <label asp-for="Input.ConfirmPassword" class="cfc bold"></label>
+                            <input asp-for="Input.ConfirmPassword" class="input-default row100" placeholder="Confirme a sua Senha" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row100">
+                    <button type="submit" class="default-button">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Account/register.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}
