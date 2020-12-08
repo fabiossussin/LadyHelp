@@ -46,6 +46,9 @@ namespace Models.User
         [Required(ErrorMessage = "O campo de confirmação de Senha deve ser informado"), DataType(DataType.Password), Display(Name = "Confirmação de Senha")]
         [Compare("Password", ErrorMessage = "As senhas não coincidem. Tente novamente")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Serviços Prestados")]
+        public List<string> Services { get; set; }
         #endregion
 
         #region Address

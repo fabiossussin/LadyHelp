@@ -14,6 +14,7 @@
     <div class="registration-information">
         <div class="account-data">
             <span class="form-title" name="personal-data">Dados Pessoais</span>
+            <span class="form-title" name="worker-data">Dados de Trabalho</span>
             <span class="form-title" name="address">Endereço</span>
             <span class="form-title" name="account-data">Email/Senha</span>
             <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="group">
@@ -44,6 +45,19 @@
                             <label asp-for="Input.Phone" class="cfc bold"></label>
                             <input asp-for="Input.Phone" class="input-default row100" placeholder="Digite o seu Telefone" />
                             <span asp-validation-for="Input.Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-content" name="worker-data-info">
+                    <div class="group">
+                        <div class="form-group justify-content-space-between row100">
+                            <label  class="cfc bold">Serviços Prestados</label>
+                            <input class="input-default row75" placeholder="Digite seu Serviço Prestado" name="service-input"/>
+                            <button type="button" class="default-button row25" name="add-service">Adicionar</button>
+                        </div>
+                        <div class="form-group row100" name="services-group">
+                            <label class="cfc bold">Serviços:</label>
+                            <div class="all-services row100" name="services"></div>
                         </div>
                     </div>
                 </div>
@@ -114,6 +128,7 @@
 </div>
 
 @section Scripts {
+
     <script src="~/js/Account/register.js"></script>
     <partial name="_ValidationScriptsPartial" />
 }

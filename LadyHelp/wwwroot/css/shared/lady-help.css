@@ -111,6 +111,9 @@ button:hover {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.justify-content-space-between{
+  justify-content: space-between !important;
+}
 .form-group {
   margin-bottom: 15px;
   display: flex;
