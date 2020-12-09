@@ -25,7 +25,7 @@ namespace LadyHelp.Areas.Identity.Pages.Account
         }
 
         [BindProperty]
-        public InputModel Input { get; set; }
+        public InputModel Input { get; set; } = new InputModel();
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
