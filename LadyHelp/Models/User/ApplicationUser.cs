@@ -1,9 +1,11 @@
 using Database.Postgres;
 using LadyHelp.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Reflection;
 
 namespace Models.User
@@ -48,26 +50,29 @@ namespace Models.User
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Serviços Prestados")]
-        public List<string> Services { get; set; }
+        public List<string> Services { get; set; } = new List<string>();
+
+        [JsonIgnore] //Isso é uma gambiarra das brabas, mas é momentâneo, para poder realizar a entrega
+        public string AuxServices { get; set; }
         #endregion
 
         #region Address
-        [Required(ErrorMessage = "O campo CEP deve ser informado"), StringLength(9, ErrorMessage = "O {0} deve deve ser informado corretamente", MinimumLength = 8), Display(Name = "CEP")]
+        [StringLength(9, ErrorMessage = "O {0} deve deve ser informado corretamente", MinimumLength = 8), Display(Name = "CEP")]
         public string ZipCode { get; set; }
 
         [Display(Name = "Número")]
         public string HouseNumber { get; set; }
 
-        [Required(ErrorMessage = "O campo Logradouro deve ser informado"), Display(Name = "Logradouro")]
+        [Display(Name = "Logradouro")]
         public string Street { get; set; }
 
-        [Required(ErrorMessage = "O campo Cidade deve ser informado"), Display(Name = "Cidade")]
+        [Display(Name = "Cidade")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "O campo Estado deve ser informado"), Display(Name = "Estado")]
+        [Display(Name = "Estado")]
         public string State { get; set; }
 
-        [Required(ErrorMessage = "O campo Bairro deve ser informado"), Display(Name = "Bairro")]
+        [Display(Name = "Bairro")]
         public string Neighborhood { get; set; }
 
         [Display(Name = "Complemento")]
@@ -104,13 +109,28 @@ namespace Models.User
             var t = applicationUser.GetType();
             foreach (PropertyInfo pi in t.GetProperties())
             {
+                var ignore = Attribute.IsDefined(pi, typeof(JsonIgnoreAttribute));
+                if (ignore)
+                    continue;
+
                 var value = pi.GetValue(applicationUser);
                 if (value == null)
                     continue;
 
                 var pt = pi.PropertyType;
+
                 if (pt == typeof(string))
                     value = $"'{ value.ToString() }'";
+                else if (pt == typeof(List<string>))
+                {
+                    var list = (List<string>)value;
+                    value = $"ARRAY [ { string.Join(',', list.Select(x => $"'{ x }'"))} ]";
+                }
+                else if (pt == typeof(string[]))
+                {
+                    var list = (string[])value;
+                    value = $"ARRAY [ { string.Join(',', list.Select(x => x))} ]";
+                }
                 else if (pt == typeof(DateTime))
                     value = $"'{((DateTime)value).ToString("dd/MM/yyyy")}'";
 

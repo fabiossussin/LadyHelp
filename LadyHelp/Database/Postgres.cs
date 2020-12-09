@@ -47,6 +47,74 @@ namespace Database.Postgres
             return dt;
         }
 
+        public DataTable FindTemporarioServices(string tableName, string parameter)
+        {
+            var dt = new DataTable();
+
+            try
+            {
+                using (PgsqlConnection = new NpgsqlConnection(ConnString))
+                {
+                    // abre a conexão com o PgSQL e define a instrução SQL
+                    PgsqlConnection.Open();
+                    var cmdSeleciona = $"Select * from {tableName}, unnest(services) a WHERE  lower(a) ilike '%{ parameter }%'";
+
+                    using (NpgsqlDataAdapter Adpt = new NpgsqlDataAdapter(cmdSeleciona, PgsqlConnection))
+                    {
+                        Adpt.Fill(dt);
+                    }
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                PgsqlConnection.Close();
+            }
+
+            return dt;
+        }
+
+        public DataTable FindTemporario2Workers(string tableName, string parameter)
+        {
+            var dt = new DataTable();
+
+            try
+            {
+                using (PgsqlConnection = new NpgsqlConnection(ConnString))
+                {
+                    // abre a conexão com o PgSQL e define a instrução SQL
+                    PgsqlConnection.Open();
+                    var cmdSeleciona = $"Select * from {tableName} where name ilike '%{ parameter }%'";
+
+                    using (NpgsqlDataAdapter Adpt = new NpgsqlDataAdapter(cmdSeleciona, PgsqlConnection))
+                    {
+                        Adpt.Fill(dt);
+                    }
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                PgsqlConnection.Close();
+            }
+
+            return dt;
+        }
+
         //Pega um registro pelo codigo
         public DataTable FindById(string tableName, string id)
         {
