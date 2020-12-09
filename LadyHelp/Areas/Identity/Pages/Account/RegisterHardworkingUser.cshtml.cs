@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -33,9 +34,6 @@ namespace LadyHelp.Areas.Identity.Pages.Account
             _emailSender = emailSender;
         }
 
-        [BindProperty]
-        public ApplicationUser Input { get; set; }
-
         public string ReturnUrl { get; set; }
 
         public void OnGet(string returnUrl = null)
@@ -43,15 +41,20 @@ namespace LadyHelp.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync([FromForm] ApplicationUser applicationUser)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            if (string.IsNullOrEmpty(applicationUser.AuxServices))
+                ModelState.AddModelError("services", "É necessário informar ao menos um serviço.");
+
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
-                Input.PersonType = (int)PersonType.Worker;
-                ApplicationUser.Add(Input);
-                var result = await _userManager.CreateAsync(user, Input.Password);
+                var user = new IdentityUser { UserName = applicationUser.Password, Email = applicationUser.Email };
+
+                applicationUser.PersonType = (int)PersonType.Worker;
+                applicationUser.Services.AddRange(applicationUser.AuxServices.Split(';').Select(x => x.Trim()).ToList());
+
+                ApplicationUser.Add(applicationUser);
+                var result = await _userManager.CreateAsync(user, applicationUser.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
@@ -63,11 +66,11 @@ namespace LadyHelp.Areas.Identity.Pages.Account
                         values: new { userId = user.Id, code = code },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    await _emailSender.SendEmailAsync(applicationUser.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+                    return LocalRedirect(Url.Content("~/"));
                 }
                 foreach (var error in result.Errors)
                 {

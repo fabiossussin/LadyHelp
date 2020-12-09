@@ -30,9 +30,9 @@
                     Categorias
                 </a>
                 <a class="row15">Sobre Nós</a>
-                <form class="row50">
-                    <input class="input-default row100" placeholder="Pesquisar por Categoria ou Profissional" />
-                    <button type="button">
+                <form class="row50" asp-controller="Home" asp-action="Index" method="get">
+                    <input class="input-default row100" placeholder="Pesquisar por Categoria ou Profissional" name="parameter" />
+                    <button type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>

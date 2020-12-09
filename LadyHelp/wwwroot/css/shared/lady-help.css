@@ -30,6 +30,14 @@
   outline: none;
   margin: 0;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 a {
   cursor: pointer;
   color: var(--theme-main-font-color);
@@ -111,7 +119,7 @@ button:hover {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.justify-content-space-between{
+.justify-content-space-between {
   justify-content: space-between !important;
 }
 .form-group {
